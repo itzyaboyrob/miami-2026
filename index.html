@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami Spring Break 2026 💸</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #F5EFE0;
+    --ocean: #0A7EA4;
+    --ocean-dark: #065F7E;
+    --coral: #FF5F4B;
+    --coral-light: #FF8070;
+    --sun: #FFD166;
+    --palm: #2D9E6B;
+    --bg: #0D1B2A;
+    --card: #162233;
+    --card2: #1C2E42;
+    --border: rgba(255,255,255,0.08);
+    --text: #F0EAD6;
+    --muted: #8899AA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 120%, rgba(10,126,164,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% -10%, rgba(255,95,75,0.12) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .trip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,209,102,0.12);
+    border: 1px solid rgba(255,209,102,0.3);
+    color: var(--sun);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    background: linear-gradient(135deg, var(--sand) 0%, var(--sun) 40%, var(--coral-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Sync status */
+  .sync-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    margin-top: 10px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .sync-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+    transition: background 0.3s;
+  }
+
+  .sync-dot.connected { background: var(--palm); box-shadow: 0 0 6px var(--palm); }
+  .sync-dot.syncing { background: var(--sun); }
+  .sync-dot.error { background: var(--coral); }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 560px) {
+    .summary-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .person-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .person-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .person-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    margin: 0 auto 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .av-IR { background: linear-gradient(135deg, #0A7EA4, #065F7E); color: white; }
+  .av-CW { background: linear-gradient(135deg, #FF5F4B, #CC3A28); color: white; }
+  .av-MV { background: linear-gradient(135deg, #2D9E6B, #1E7050); color: white; }
+  .av-MJ { background: linear-gradient(135deg, #FFD166, #E5A800); color: #1a1a1a; }
+
+  .person-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .person-total {
+    font-size: 13px;
+    color: var(--sun);
+    font-weight: 500;
+  }
+
+  .grand-total {
+    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean));
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    border: 1px solid rgba(10,126,164,0.4);
+  }
+
+  .grand-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .grand-amount {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+
+  .form-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    margin-bottom: 16px;
+    align-items: end;
+  }
+
+  label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--ocean);
+  }
+
+  input[type="number"] { width: 140px; }
+
+  .people-select {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .person-check { position: relative; }
+
+  .person-check input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .person-check label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    color: var(--text);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .person-check input:checked + label { border-color: currentColor; background: rgba(255,255,255,0.05); }
+  .check-IR input:checked + label { border-color: var(--ocean); color: var(--ocean); }
+  .check-CW input:checked + label { border-color: var(--coral); color: var(--coral); }
+  .check-MV input:checked + label { border-color: var(--palm); color: var(--palm); }
+  .check-MJ input:checked + label { border-color: var(--sun); color: var(--sun); }
+
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot-IR { background: var(--ocean); }
+  .dot-CW { background: var(--coral); }
+  .dot-MV { background: var(--palm); }
+  .dot-MJ { background: var(--sun); }
+
+  .add-btn {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .add-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,95,75,0.35); }
+  .add-btn:active { transform: translateY(0); }
+  .add-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .split-preview {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    min-height: 18px;
+  }
+
+  .expense-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .expense-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 16px;
+    animation: slideIn 0.25s ease-out;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .expense-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .expense-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .pill { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 100px; letter-spacing: 0.05em; }
+  .pill-IR { background: rgba(10,126,164,0.2); color: #4DB8D9; }
+  .pill-CW { background: rgba(255,95,75,0.2); color: #FF8070; }
+  .pill-MV { background: rgba(45,158,107,0.2); color: #5DC99A; }
+  .pill-MJ { background: rgba(255,209,102,0.2); color: #FFD166; }
+
+  .expense-right { text-align: right; flex-shrink: 0; }
+
+  .expense-total {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--sand);
+    margin-bottom: 4px;
+  }
+
+  .expense-per-person { font-size: 11px; color: var(--muted); }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.2s;
+    line-height: 1;
+    margin-left: 8px;
+  }
+
+  .delete-btn:hover { color: var(--coral); }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+  }
+
+  .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state p { font-size: 14px; }
+
+  .section-header {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .count-badge {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .error-msg { color: var(--coral); font-size: 12px; margin-top: 6px; min-height: 18px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="trip-badge">🌴 Spring Break 2026</div>
+    <h1>Miami Trip<br>Expenses</h1>
+    <p class="subtitle">Track · Split · Settle Up</p>
+    <div class="sync-status">
+      <div class="sync-dot" id="syncDot"></div>
+      <span id="syncLabel">Connecting...</span>
+    </div>
+  </header>
+
+  <div class="summary-grid" id="summaryGrid"></div>
+
+  <div class="grand-total">
+    <div><div class="grand-label">Trip Total</div></div>
+    <div class="grand-amount" id="grandTotal">$0.00</div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">+ Add Expense</div>
+    <div class="form-row">
+      <div>
+        <label for="expName">Expense Name</label>
+        <input type="text" id="expName" placeholder="e.g. Airbnb, dinner at Zuma...">
+      </div>
+      <div>
+        <label for="expAmount">Total ($)</label>
+        <input type="number" id="expAmount" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+
+    <label style="margin-bottom:10px;">Split Between</label>
+    <div class="people-select">
+      <div class="person-check check-IR">
+        <input type="checkbox" id="chk-IR" checked>
+        <label for="chk-IR"><span class="dot dot-IR"></span>IR</label>
+      </div>
+      <div class="person-check check-CW">
+        <input type="checkbox" id="chk-CW" checked>
+        <label for="chk-CW"><span class="dot dot-CW"></span>CW</label>
+      </div>
+      <div class="person-check check-MV">
+        <input type="checkbox" id="chk-MV" checked>
+        <label for="chk-MV"><span class="dot dot-MV"></span>MV</label>
+      </div>
+      <div class="person-check check-MJ">
+        <input type="checkbox" id="chk-MJ" checked>
+        <label for="chk-MJ"><span class="dot dot-MJ"></span>MJ</label>
+      </div>
+    </div>
+
+    <div class="split-preview" id="splitPreview"></div>
+    <div class="error-msg" id="errorMsg"></div>
+    <div style="margin-top:16px;">
+      <button class="add-btn" id="addBtn" onclick="addExpense()">Add Expense</button>
+    </div>
+  </div>
+
+  <div class="section-header">
+    Expenses
+    <span class="count-badge" id="countBadge">0 items</span>
+  </div>
+  <div class="expense-list" id="expenseList"></div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getDatabase, ref, push, remove, onValue } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCJFC94m_Ov3Fby89EHn8bktNMlc7K_Zfs",
+    authDomain: "miami-2026-expenses.firebaseapp.com",
+    databaseURL: "https://miami-2026-expenses-default-rtdb.firebaseio.com",
+    projectId: "miami-2026-expenses",
+    storageBucket: "miami-2026-expenses.firebasestorage.app",
+    messagingSenderId: "277383322999",
+    appId: "1:277383322999:web:b1c86601d6c47ead279572"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const expensesRef = ref(db, 'expenses');
+
+  const PEOPLE = ['IR', 'CW', 'MV', 'MJ'];
+  let expenses = {};
+
+  // Sync status
+  function setStatus(state) {
+    const dot = document.getElementById('syncDot');
+    const label = document.getElementById('syncLabel');
+    dot.className = 'sync-dot ' + state;
+    if (state === 'connected') label.textContent = 'Live — synced';
+    if (state === 'syncing') label.textContent = 'Saving...';
+    if (state === 'error') label.textContent = 'Connection error';
+    if (state === '') label.textContent = 'Connecting...';
+  }
+
+  // Listen for real-time changes
+  onValue(expensesRef, (snapshot) => {
+    expenses = snapshot.val() || {};
+    setStatus('connected');
+    render();
+  }, (error) => {
+    setStatus('error');
+    console.error(error);
+  });
+
+  function fmt(n) { return '$' + n.toFixed(2); }
+
+  function getChecked() {
+    return PEOPLE.filter(p => document.getElementById('chk-' + p).checked);
+  }
+
+  function updateSplitPreview() {
+    const amount = parseFloat(document.getElementById('expAmount').value) || 0;
+    const checked = getChecked();
+    const preview = document.getElementById('splitPreview');
+    if (checked.length === 0 || amount === 0) { preview.textContent = ''; return; }
+    const per = amount / checked.length;
+    preview.textContent = `→ ${fmt(per)} per person (${checked.join(', ')})`;
+  }
+
+  ['expAmount', 'chk-IR', 'chk-CW', 'chk-MV', 'chk-MJ'].forEach(id => {
+    document.getElementById(id).addEventListener('change', updateSplitPreview);
+    document.getElementById(id).addEventListener('input', updateSplitPreview);
+  });
+
+  window.addExpense = async function() {
+    const name = document.getElementById('expName').value.trim();
+    const amount = parseFloat(document.getElementById('expAmount').value);
+    const people = getChecked();
+    const errEl = document.getElementById('errorMsg');
+    const btn = document.getElementById('addBtn');
+    errEl.textContent = '';
+
+    if (!name) { errEl.textContent = 'Please enter an expense name.'; return; }
+    if (!amount || amount <= 0) { errEl.textContent = 'Please enter a valid amount.'; return; }
+    if (people.length === 0) { errEl.textContent = 'Select at least one person.'; return; }
+
+    btn.disabled = true;
+    setStatus('syncing');
+
+    try {
+      await push(expensesRef, {
+        name,
+        amount,
+        people,
+        timestamp: Date.now()
+      });
+      document.getElementById('expName').value = '';
+      document.getElementById('expAmount').value = '';
+      PEOPLE.forEach(p => document.getElementById('chk-' + p).checked = true);
+      updateSplitPreview();
+    } catch(e) {
+      errEl.textContent = 'Failed to save. Check your connection.';
+      setStatus('error');
+    }
+
+    btn.disabled = false;
+  }
+
+  window.deleteExpense = async function(key) {
+    setStatus('syncing');
+    try {
+      await remove(ref(db, 'expenses/' + key));
+    } catch(e) {
+      setStatus('error');
+    }
+  }
+
+  function calcTotals() {
+    const totals = {};
+    PEOPLE.forEach(p => totals[p] = 0);
+    Object.values(expenses).forEach(e => {
+      const share = e.amount / e.people.length;
+      e.people.forEach(p => totals[p] += share);
+    });
+    return totals;
+  }
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function render() {
+    const totals = calcTotals();
+    const expList = Object.entries(expenses);
+    const grandTotal = expList.reduce((s, [, e]) => s + e.amount, 0);
+
+    document.getElementById('grandTotal').textContent = fmt(grandTotal);
+
+    const n = expList.length;
+    document.getElementById('countBadge').textContent = n + ' item' + (n !== 1 ? 's' : '');
+
+    document.getElementById('summaryGrid').innerHTML = PEOPLE.map(p => `
+      <div class="person-card">
+        <div class="person-avatar av-${p}">${p}</div>
+        <div class="person-name">${p}</div>
+        <div class="person-total">${fmt(totals[p])}</div>
+      </div>
+    `).join('');
+
+    const list = document.getElementById('expenseList');
+    if (expList.length === 0) {
+      list.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🏖️</div>
+          <p>No expenses yet — add your first one above!</p>
+        </div>`;
+      return;
+    }
+
+    // Sort newest first
+    expList.sort((a, b) => (b[1].timestamp || 0) - (a[1].timestamp || 0));
+
+    list.innerHTML = expList.map(([key, e]) => {
+      const per = e.amount / e.people.length;
+      const pills = e.people.map(p => `<span class="pill pill-${p}">${p}</span>`).join('');
+      return `
+        <div class="expense-item">
+          <div>
+            <div class="expense-name">${escHtml(e.name)}</div>
+            <div class="expense-pills">${pills}</div>
+          </div>
+          <div class="expense-right">
+            <div class="expense-total">${fmt(e.amount)}<button class="delete-btn" onclick="deleteExpense('${key}')" title="Remove">✕</button></div>
+            <div class="expense-per-person">${fmt(per)} / person</div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  document.getElementById('expName').addEventListener('keydown', e => { if (e.key === 'Enter') window.addExpense(); });
+  document.getElementById('expAmount').addEventListener('keydown', e => { if (e.key === 'Enter') window.addExpense(); });
+</script>
+</body>
+</html>

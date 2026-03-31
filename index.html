@@ -51,10 +51,7 @@
     padding: 40px 20px 80px;
   }
 
-  header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
+  header { text-align: center; margin-bottom: 48px; }
 
   .trip-badge {
     display: inline-flex;
@@ -83,13 +80,8 @@
     margin-bottom: 8px;
   }
 
-  .subtitle {
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 0.05em;
-  }
+  .subtitle { color: var(--muted); font-size: 13px; letter-spacing: 0.05em; }
 
-  /* Sync status */
   .sync-status {
     display: inline-flex;
     align-items: center;
@@ -102,14 +94,7 @@
     background: var(--card);
   }
 
-  .sync-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--muted);
-    transition: background 0.3s;
-  }
-
+  .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); transition: background 0.3s; }
   .sync-dot.connected { background: var(--palm); box-shadow: 0 0 6px var(--palm); }
   .sync-dot.syncing { background: var(--sun); }
   .sync-dot.error { background: var(--coral); }
@@ -121,9 +106,7 @@
     margin-bottom: 32px;
   }
 
-  @media (min-width: 560px) {
-    .summary-grid { grid-template-columns: repeat(4, 1fr); }
-  }
+  @media (min-width: 560px) { .summary-grid { grid-template-columns: repeat(4, 1fr); } }
 
   .person-card {
     background: var(--card);
@@ -134,23 +117,13 @@
     transition: transform 0.2s, border-color 0.2s;
   }
 
-  .person-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.15);
-  }
+  .person-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.15); }
 
   .person-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 14px;
-    margin: 0 auto 10px;
-    letter-spacing: 0.05em;
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px;
+    margin: 0 auto 10px; letter-spacing: 0.05em;
   }
 
   .av-IR { background: linear-gradient(135deg, #0A7EA4, #065F7E); color: white; }
@@ -158,18 +131,9 @@
   .av-MV { background: linear-gradient(135deg, #2D9E6B, #1E7050); color: white; }
   .av-MJ { background: linear-gradient(135deg, #FFD166, #E5A800); color: #1a1a1a; }
 
-  .person-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .person-total {
-    font-size: 13px;
-    color: var(--sun);
-    font-weight: 500;
-  }
+  .person-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 2px; }
+  .person-owes { font-size: 12px; color: var(--sun); font-weight: 500; margin-bottom: 1px; }
+  .person-paid { font-size: 11px; color: var(--muted); }
 
   .grand-total {
     background: linear-gradient(135deg, var(--ocean-dark), var(--ocean));
@@ -178,62 +142,58 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     border: 1px solid rgba(10,126,164,0.4);
   }
 
-  .grand-label {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-  }
+  .grand-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  .grand-amount { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2rem; color: white; }
 
-  .grand-amount {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: white;
-  }
-
-  .form-card {
+  /* Settlement */
+  .settlement-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 28px;
+    padding: 24px;
     margin-bottom: 28px;
   }
 
-  .form-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 20px;
+  .settlement-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .settlement-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .settlement-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    gap: 12px;
   }
 
-  .form-row {
+  .settlement-people { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .s-arrow { color: var(--muted); }
+  .settlement-amount { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--sun); }
+  .all-settled { text-align: center; padding: 20px; color: var(--palm); font-size: 13px; }
+
+  /* Form */
+  .form-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; margin-bottom: 28px; }
+  .form-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+
+  .form-top {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 130px 100px;
     gap: 12px;
     margin-bottom: 16px;
     align-items: end;
   }
 
-  label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
+  @media (max-width: 560px) { .form-top { grid-template-columns: 1fr; } }
 
-  input[type="text"], input[type="number"] {
+  label { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+  input[type="text"], input[type="number"], select {
     width: 100%;
     background: var(--bg);
     border: 1px solid var(--border);
@@ -246,45 +206,31 @@
     transition: border-color 0.2s;
   }
 
-  input[type="text"]:focus, input[type="number"]:focus {
-    border-color: var(--ocean);
+  input[type="text"]:focus, input[type="number"]:focus, select:focus { border-color: var(--ocean); }
+
+  select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238899AA' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-color: var(--bg);
+    padding-right: 32px;
   }
 
-  input[type="number"] { width: 140px; }
+  select option { background: #162233; }
 
-  .people-select {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-
+  .people-select { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
   .person-check { position: relative; }
-
-  .person-check input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+  .person-check input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
 
   .person-check label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin: 0;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    text-transform: none;
-    color: var(--text);
-    white-space: nowrap;
-    user-select: none;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 16px;
+    cursor: pointer; transition: all 0.2s; margin: 0;
+    font-size: 13px; letter-spacing: 0.05em; text-transform: none;
+    color: var(--text); white-space: nowrap; user-select: none;
   }
 
   .person-check input:checked + label { border-color: currentColor; background: rgba(255,255,255,0.05); }
@@ -299,58 +245,41 @@
   .dot-MV { background: var(--palm); }
   .dot-MJ { background: var(--sun); }
 
+  .color-IR { color: #4DB8D9; }
+  .color-CW { color: #FF8070; }
+  .color-MV { color: #5DC99A; }
+  .color-MJ { color: var(--sun); }
+
   .add-btn {
     background: linear-gradient(135deg, var(--coral), var(--coral-light));
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 24px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
+    color: white; border: none; border-radius: 10px;
+    padding: 12px 24px; font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 14px; cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.05em; white-space: nowrap;
   }
 
   .add-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,95,75,0.35); }
   .add-btn:active { transform: translateY(0); }
   .add-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-  .split-preview {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 4px;
-    min-height: 18px;
-  }
+  .split-preview { font-size: 12px; color: var(--muted); margin-top: 4px; min-height: 18px; }
+  .error-msg { color: var(--coral); font-size: 12px; margin-top: 6px; min-height: 18px; }
 
+  /* Expense list */
   .expense-list { display: flex; flex-direction: column; gap: 10px; }
 
   .expense-item {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 18px 20px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 16px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 18px 20px;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 16px;
     animation: slideIn 0.25s ease-out;
   }
 
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  .expense-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 6px;
-  }
-
+  .expense-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .expense-meta { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
   .expense-pills { display: flex; gap: 6px; flex-wrap: wrap; }
 
   .pill { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 100px; letter-spacing: 0.05em; }
@@ -360,67 +289,35 @@
   .pill-MJ { background: rgba(255,209,102,0.2); color: #FFD166; }
 
   .expense-right { text-align: right; flex-shrink: 0; }
-
-  .expense-total {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    color: var(--sand);
-    margin-bottom: 4px;
-  }
-
+  .expense-total { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--sand); margin-bottom: 4px; }
   .expense-per-person { font-size: 11px; color: var(--muted); }
 
   .delete-btn {
-    background: none;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 16px;
-    padding: 4px;
-    border-radius: 6px;
-    transition: color 0.2s;
-    line-height: 1;
-    margin-left: 8px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 16px; padding: 4px;
+    border-radius: 6px; transition: color 0.2s; line-height: 1; margin-left: 8px;
   }
 
   .delete-btn:hover { color: var(--coral); }
 
   .empty-state {
-    text-align: center;
-    padding: 48px 24px;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px dashed var(--border);
-    border-radius: 20px;
+    text-align: center; padding: 48px 24px; color: var(--muted);
+    background: var(--card); border: 1px dashed var(--border); border-radius: 20px;
   }
 
   .empty-icon { font-size: 40px; margin-bottom: 12px; }
   .empty-state p { font-size: 14px; }
 
   .section-header {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;
   }
 
   .count-badge {
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 3px 10px;
-    font-size: 11px;
-    color: var(--muted);
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: 100px; padding: 3px 10px; font-size: 11px; color: var(--muted);
   }
-
-  .error-msg { color: var(--coral); font-size: 12px; margin-top: 6px; min-height: 18px; }
 </style>
 </head>
 <body>
@@ -442,9 +339,16 @@
     <div class="grand-amount" id="grandTotal">$0.00</div>
   </div>
 
+  <div class="settlement-card">
+    <div class="settlement-title">💸 Settle Up</div>
+    <div class="settlement-list" id="settlementList">
+      <div class="all-settled">Add expenses to see who owes what</div>
+    </div>
+  </div>
+
   <div class="form-card">
     <div class="form-title">+ Add Expense</div>
-    <div class="form-row">
+    <div class="form-top">
       <div>
         <label for="expName">Expense Name</label>
         <input type="text" id="expName" placeholder="e.g. Airbnb, dinner at Zuma...">
@@ -453,26 +357,23 @@
         <label for="expAmount">Total ($)</label>
         <input type="number" id="expAmount" placeholder="0.00" min="0" step="0.01">
       </div>
+      <div>
+        <label for="paidBy">Paid By</label>
+        <select id="paidBy">
+          <option value="IR">IR</option>
+          <option value="CW">CW</option>
+          <option value="MV">MV</option>
+          <option value="MJ">MJ</option>
+        </select>
+      </div>
     </div>
 
     <label style="margin-bottom:10px;">Split Between</label>
     <div class="people-select">
-      <div class="person-check check-IR">
-        <input type="checkbox" id="chk-IR" checked>
-        <label for="chk-IR"><span class="dot dot-IR"></span>IR</label>
-      </div>
-      <div class="person-check check-CW">
-        <input type="checkbox" id="chk-CW" checked>
-        <label for="chk-CW"><span class="dot dot-CW"></span>CW</label>
-      </div>
-      <div class="person-check check-MV">
-        <input type="checkbox" id="chk-MV" checked>
-        <label for="chk-MV"><span class="dot dot-MV"></span>MV</label>
-      </div>
-      <div class="person-check check-MJ">
-        <input type="checkbox" id="chk-MJ" checked>
-        <label for="chk-MJ"><span class="dot dot-MJ"></span>MJ</label>
-      </div>
+      <div class="person-check check-IR"><input type="checkbox" id="chk-IR" checked><label for="chk-IR"><span class="dot dot-IR"></span>IR</label></div>
+      <div class="person-check check-CW"><input type="checkbox" id="chk-CW" checked><label for="chk-CW"><span class="dot dot-CW"></span>CW</label></div>
+      <div class="person-check check-MV"><input type="checkbox" id="chk-MV" checked><label for="chk-MV"><span class="dot dot-MV"></span>MV</label></div>
+      <div class="person-check check-MJ"><input type="checkbox" id="chk-MJ" checked><label for="chk-MJ"><span class="dot dot-MJ"></span>MJ</label></div>
     </div>
 
     <div class="split-preview" id="splitPreview"></div>
@@ -510,7 +411,6 @@
   const PEOPLE = ['IR', 'CW', 'MV', 'MJ'];
   let expenses = {};
 
-  // Sync status
   function setStatus(state) {
     const dot = document.getElementById('syncDot');
     const label = document.getElementById('syncLabel');
@@ -518,35 +418,29 @@
     if (state === 'connected') label.textContent = 'Live — synced';
     if (state === 'syncing') label.textContent = 'Saving...';
     if (state === 'error') label.textContent = 'Connection error';
-    if (state === '') label.textContent = 'Connecting...';
   }
 
-  // Listen for real-time changes
   onValue(expensesRef, (snapshot) => {
     expenses = snapshot.val() || {};
     setStatus('connected');
     render();
-  }, (error) => {
-    setStatus('error');
-    console.error(error);
-  });
+  }, () => setStatus('error'));
 
-  function fmt(n) { return '$' + n.toFixed(2); }
+  function fmt(n) { return '$' + Math.abs(n).toFixed(2); }
 
-  function getChecked() {
-    return PEOPLE.filter(p => document.getElementById('chk-' + p).checked);
-  }
+  function getChecked() { return PEOPLE.filter(p => document.getElementById('chk-' + p).checked); }
 
   function updateSplitPreview() {
     const amount = parseFloat(document.getElementById('expAmount').value) || 0;
     const checked = getChecked();
+    const paidBy = document.getElementById('paidBy').value;
     const preview = document.getElementById('splitPreview');
     if (checked.length === 0 || amount === 0) { preview.textContent = ''; return; }
     const per = amount / checked.length;
-    preview.textContent = `→ ${fmt(per)} per person (${checked.join(', ')})`;
+    preview.textContent = `→ ${fmt(per)} / person · paid by ${paidBy} · split: ${checked.join(', ')}`;
   }
 
-  ['expAmount', 'chk-IR', 'chk-CW', 'chk-MV', 'chk-MJ'].forEach(id => {
+  ['expAmount', 'paidBy', 'chk-IR', 'chk-CW', 'chk-MV', 'chk-MJ'].forEach(id => {
     document.getElementById(id).addEventListener('change', updateSplitPreview);
     document.getElementById(id).addEventListener('input', updateSplitPreview);
   });
@@ -554,6 +448,7 @@
   window.addExpense = async function() {
     const name = document.getElementById('expName').value.trim();
     const amount = parseFloat(document.getElementById('expAmount').value);
+    const paidBy = document.getElementById('paidBy').value;
     const people = getChecked();
     const errEl = document.getElementById('errorMsg');
     const btn = document.getElementById('addBtn');
@@ -565,14 +460,8 @@
 
     btn.disabled = true;
     setStatus('syncing');
-
     try {
-      await push(expensesRef, {
-        name,
-        amount,
-        people,
-        timestamp: Date.now()
-      });
+      await push(expensesRef, { name, amount, paidBy, people, timestamp: Date.now() });
       document.getElementById('expName').value = '';
       document.getElementById('expAmount').value = '';
       PEOPLE.forEach(p => document.getElementById('chk-' + p).checked = true);
@@ -581,27 +470,39 @@
       errEl.textContent = 'Failed to save. Check your connection.';
       setStatus('error');
     }
-
     btn.disabled = false;
   }
 
   window.deleteExpense = async function(key) {
     setStatus('syncing');
-    try {
-      await remove(ref(db, 'expenses/' + key));
-    } catch(e) {
-      setStatus('error');
-    }
+    try { await remove(ref(db, 'expenses/' + key)); }
+    catch(e) { setStatus('error'); }
   }
 
-  function calcTotals() {
-    const totals = {};
-    PEOPLE.forEach(p => totals[p] = 0);
+  function calcSettlements() {
+    // Build net balance per person (positive = owed money, negative = owes money)
+    const net = {};
+    PEOPLE.forEach(p => net[p] = 0);
     Object.values(expenses).forEach(e => {
       const share = e.amount / e.people.length;
-      e.people.forEach(p => totals[p] += share);
+      if (e.paidBy) net[e.paidBy] += e.amount;
+      e.people.forEach(p => net[p] -= share);
     });
-    return totals;
+
+    // Greedy settlement algorithm
+    const balances = PEOPLE.map(p => ({ person: p, bal: net[p] }));
+    const settlements = [];
+    for (let i = 0; i < 20; i++) {
+      balances.sort((a, b) => a.bal - b.bal);
+      const debtor = balances[0];
+      const creditor = balances[balances.length - 1];
+      if (Math.abs(debtor.bal) < 0.01 || creditor.bal < 0.01) break;
+      const amount = Math.min(Math.abs(debtor.bal), creditor.bal);
+      settlements.push({ from: debtor.person, to: creditor.person, amount });
+      debtor.bal += amount;
+      creditor.bal -= amount;
+    }
+    return settlements;
   }
 
   function escHtml(str) {
@@ -609,48 +510,74 @@
   }
 
   function render() {
-    const totals = calcTotals();
     const expList = Object.entries(expenses);
     const grandTotal = expList.reduce((s, [, e]) => s + e.amount, 0);
 
-    document.getElementById('grandTotal').textContent = fmt(grandTotal);
+    // Per-person totals
+    const owes = {}, paid = {};
+    PEOPLE.forEach(p => { owes[p] = 0; paid[p] = 0; });
+    expList.forEach(([, e]) => {
+      const share = e.amount / e.people.length;
+      e.people.forEach(p => owes[p] += share);
+      if (e.paidBy) paid[e.paidBy] += e.amount;
+    });
 
+    document.getElementById('grandTotal').textContent = '$' + grandTotal.toFixed(2);
     const n = expList.length;
     document.getElementById('countBadge').textContent = n + ' item' + (n !== 1 ? 's' : '');
 
+    // Summary cards
     document.getElementById('summaryGrid').innerHTML = PEOPLE.map(p => `
       <div class="person-card">
         <div class="person-avatar av-${p}">${p}</div>
         <div class="person-name">${p}</div>
-        <div class="person-total">${fmt(totals[p])}</div>
+        <div class="person-owes">share $${owes[p].toFixed(2)}</div>
+        <div class="person-paid">paid $${paid[p].toFixed(2)}</div>
       </div>
     `).join('');
 
+    // Settle up
+    const settlements = calcSettlements();
+    const settlEl = document.getElementById('settlementList');
+    if (expList.length === 0) {
+      settlEl.innerHTML = `<div class="all-settled">Add expenses to see who owes what</div>`;
+    } else if (settlements.length === 0) {
+      settlEl.innerHTML = `<div class="all-settled">🎉 All settled up!</div>`;
+    } else {
+      settlEl.innerHTML = settlements.map(s => `
+        <div class="settlement-row">
+          <div class="settlement-people">
+            <span class="color-${s.from}">${s.from}</span>
+            <span class="s-arrow">→</span>
+            <span class="color-${s.to}">${s.to}</span>
+          </div>
+          <div class="settlement-amount">${fmt(s.amount)}</div>
+        </div>
+      `).join('');
+    }
+
+    // Expense list
     const list = document.getElementById('expenseList');
     if (expList.length === 0) {
-      list.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">🏖️</div>
-          <p>No expenses yet — add your first one above!</p>
-        </div>`;
+      list.innerHTML = `<div class="empty-state"><div class="empty-icon">🏖️</div><p>No expenses yet — add your first one above!</p></div>`;
       return;
     }
 
-    // Sort newest first
     expList.sort((a, b) => (b[1].timestamp || 0) - (a[1].timestamp || 0));
-
     list.innerHTML = expList.map(([key, e]) => {
       const per = e.amount / e.people.length;
       const pills = e.people.map(p => `<span class="pill pill-${p}">${p}</span>`).join('');
+      const paidByHtml = e.paidBy ? `paid by <span class="color-${e.paidBy}">${e.paidBy}</span>` : '';
       return `
         <div class="expense-item">
           <div>
             <div class="expense-name">${escHtml(e.name)}</div>
+            <div class="expense-meta">${paidByHtml}</div>
             <div class="expense-pills">${pills}</div>
           </div>
           <div class="expense-right">
-            <div class="expense-total">${fmt(e.amount)}<button class="delete-btn" onclick="deleteExpense('${key}')" title="Remove">✕</button></div>
-            <div class="expense-per-person">${fmt(per)} / person</div>
+            <div class="expense-total">$${e.amount.toFixed(2)}<button class="delete-btn" onclick="deleteExpense('${key}')" title="Remove">✕</button></div>
+            <div class="expense-per-person">$${per.toFixed(2)} / person</div>
           </div>
         </div>`;
     }).join('');
